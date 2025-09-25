@@ -1,4 +1,4 @@
-# Vim with dependencies script install
+# Vim with dependencies install script 
 
 One-command LunarVim installation for Ubuntu/Debian (bash) and Windows (PowerShell), including all dependencies and recommended plugins.
 
