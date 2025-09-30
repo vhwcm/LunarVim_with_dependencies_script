@@ -6,28 +6,31 @@ One-command LunarVim installation for Ubuntu/Debian (bash) and Windows (PowerShe
 
 ## Why this project?
 
-I created this script because, based on my own experience, setting up a complete, Vim/Neovim environment was always time-consuming and often frustrating—especially when you want all the features working out-of-the-box. This installer takes care of everything for you: dependencies, plugin setup, configuration backup, and even verifying that all essential shortcuts work.
-## Instalação Local
+I created this script because, based on my own experience, setting up a complete, modern Vim/Neovim environment was always time-consuming and often frustrating—especially when you want all the features working out-of-the-box. This installer takes care of everything for you: dependencies, plugin setup, configuration backup, and even verifying that all essential shortcuts work. Now, you can get a powerful IDE-like setup in your terminal in just one command, hassle-free!
 
-Para instalar apenas para o usuário atual, sem necessidade de privilégios de administrador, utilize a flag `-l` ou `--local`:
+---
+
+## Local Installation
+
+To install only for the current user, without administrator privileges, use the `-l` or `--local` flag:
 
 ```bash
 ./install.sh -l
 ```
 
-**Vantagens da instalação local:**
-- Não requer `sudo` ou privilégios de administrador
-- Instala tudo em `~/.local/` (não afeta outros usuários)
-- Adiciona automaticamente `~/.local/bin` ao seu PATH
-- Ideal para ambientes onde você não tem acesso root
+**Local installation advantages:**
+- No `sudo` or administrator privileges required
+- Installs everything in `~/.local/` (doesn't affect other users)
+- Automatically adds `~/.local/bin` to your PATH
+- Perfect for environments where you don't have root access
 
-**Comandos para instalação local:**
+**Local installation commands:**
 
 ```bash
-# Opção 1: Download e execução direta
+# Option 1: Direct download and execution
 bash <(curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh) -l
 
-# Opção 2: Download primeiro, execução depois
+# Option 2: Download first, execute later
 curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh -o install.sh
 chmod +x install.sh
 ./install.sh -l
@@ -54,12 +57,12 @@ chmod +x install.sh
 
 ### Ubuntu/Debian (bash)
 
-**Instalação do sistema (requer sudo):**
+**System installation (requires sudo):**
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh)
 ```
 
-**Instalação local (sem sudo):**
+**Local installation (no sudo):**
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh) -l
 ```
