@@ -6,7 +6,7 @@ One-command LunarVim installation for Ubuntu/Debian (bash) and Windows (PowerShe
 
 ## Why this project?
 
-I created this script because, based on my own experience, setting up a complete, modern Vim/Neovim environment was always time-consuming and often frustrating—especially when you want all the features working out-of-the-box. This installer takes care of everything for you: dependencies, plugin setup, configuration backup, and even verifying that all essential shortcuts work. Now, you can get a powerful IDE-like setup in your terminal in just one command, hassle-free!
+I created this script because, based on my own experience, setting up a complete, Vim/Neovim environment was always time-consuming and often frustrating—especially when you want all the features working out-of-the-box. This installer takes care of everything for you: dependencies, plugin setup, configuration backup, and even verifying that all essential shortcuts work.
 #### Instalação local
 
 Para instalar apenas para o usuário atual, utilize a flag `-l`:
@@ -71,7 +71,3 @@ irm https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install
 ## Uninstall
 
 See uninstall options in install script or simply remove LunarVim configs.
-
----
-
-> Enjoy a full-featured IDE inside your terminal, with all essential plugins pre-configured!
