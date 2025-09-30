@@ -196,18 +196,49 @@ CONFIG_DIR="$HOME/.config/lvim"
 mkdir -p "$CONFIG_DIR"
 
 cat > "$CONFIG_DIR/config.lua" <<EOF
--- For additional information, see lunarvim's documentation
+-- Para mais informações, veja a documentação do LunarVim:
 -- https://www.lunarvim.org/docs/configuration
+
+-- Lista de plugins a serem instalados
 lvim.plugins = {
-  {"nvim-tree/nvim-tree.lua"},
-  {"nvim-telescope/telescope.nvim"},
-  {"neovim/nvim-lspconfig"},
-  {"github/copilot.vim"},
-  {"Exafunction/codeium.vim"},
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      -- Ativa e configura o explorador de arquivos
+      require("nvim-tree").setup()
+      print("NvimTree ativado.")
+    end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      -- Ativa o Telescope para busca
+      require("telescope").setup()
+      print("Telescope ativado.")
+    end,
+  },
+  
+  -- Plugins essenciais que o LunarVim gerencia bem por padrão
+  { "neovim/nvim-lspconfig" },
+
+  -- Plugins de autocompletar (precisam de login após a instalação)
+  { "github/copilot.vim" },
+  { "Exafunction/codeium.vim" },
 }
 
--- nvim-tree setup
-require("nvim-tree").setup{}
+-- Mapeamento de Atalhos
+local keys = lvim.keys.normal_mode
+
+-- Atalho para o explorador de arquivos (NvimTree)
+keys["<Space>e"] = ":NvimTreeToggle<CR>"
+
+-- Atalhos para busca com Telescope
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<Space>ff", builtin.find_files, { desc = "Procurar arquivos" })
+vim.keymap.set("n", "<Space>fg", builtin.live_grep, { desc = "Procurar por texto" })
+vim.keymap.set("n", "<Space>fb", builtin.buffers, { desc = "Procurar em buffers abertos" })
+
 EOF
 
 echo "Testing lvim launch to trigger plugin installation..."
@@ -224,5 +255,4 @@ echo "=== INSTALLATION FINISHED! ==="
 echo "Please restart your terminal or run 'source ~/.bashrc' to update your PATH."
 echo "Open LunarVim by running: lvim"
 echo "On the first interactive start, plugins will finish setting up."
-
 
