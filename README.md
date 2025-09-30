@@ -7,15 +7,31 @@ One-command LunarVim installation for Ubuntu/Debian (bash) and Windows (PowerShe
 ## Why this project?
 
 I created this script because, based on my own experience, setting up a complete, Vim/Neovim environment was always time-consuming and often frustrating—especially when you want all the features working out-of-the-box. This installer takes care of everything for you: dependencies, plugin setup, configuration backup, and even verifying that all essential shortcuts work.
-#### Instalação local
+## Instalação Local
 
-Para instalar apenas para o usuário atual, utilize a flag `-l`:
+Para instalar apenas para o usuário atual, sem necessidade de privilégios de administrador, utilize a flag `-l` ou `--local`:
 
 ```bash
 ./install.sh -l
 ```
 
-Isso instalará o Vim e suas dependências localmente, sem afetar outros usuários do sistema.
+**Vantagens da instalação local:**
+- Não requer `sudo` ou privilégios de administrador
+- Instala tudo em `~/.local/` (não afeta outros usuários)
+- Adiciona automaticamente `~/.local/bin` ao seu PATH
+- Ideal para ambientes onde você não tem acesso root
+
+**Comandos para instalação local:**
+
+```bash
+# Opção 1: Download e execução direta
+bash <(curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh) -l
+
+# Opção 2: Download primeiro, execução depois
+curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh -o install.sh
+chmod +x install.sh
+./install.sh -l
+```
 
 ---
 
@@ -38,8 +54,14 @@ Isso instalará o Vim e suas dependências localmente, sem afetar outros usuári
 
 ### Ubuntu/Debian (bash)
 
+**Instalação do sistema (requer sudo):**
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh)
+```
+
+**Instalação local (sem sudo):**
+```bash
+bash <(curl -s https://raw.githubusercontent.com/vhwcm/lvim-ultimate-installer/main/install.sh) -l
 ```
 
 ### Windows (PowerShell)
